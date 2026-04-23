@@ -12,6 +12,8 @@
     "@supabase/supabase-js": "^2.104.0",
     "@vercel/functions": "^3.4.4",
     "@whop/checkout": "^0.0.52",
+    "@whop/iframe": "^0.0.6",
+    "@whop/react": "^0.3.2",
     "@whop/sdk": "^0.0.38",
     "next": "16.2.4",
     "react": "19.2.4",
