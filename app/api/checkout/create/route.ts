@@ -67,6 +67,8 @@ export async function POST(request: NextRequest): Promise<Response> {
     const checkoutConfig = await whopsdk.checkoutConfigurations.create({
       company_id: WHOP_COMPANY_ID,
       plan: {
+        company_id: WHOP_COMPANY_ID,
+        currency: "usd",
         initial_price: totalPrice,
         plan_type: "one_time",
       },
