@@ -25,22 +25,22 @@ export async function POST(request: NextRequest): Promise<Response> {
   // Responder 200 inmediatamente — el procesamiento ocurre en background
   switch (webhookData.type) {
     case "payment.succeeded":
-      waitUntil(handlePaymentSucceeded(webhookData.data as Record<string, unknown>));
+      waitUntil(handlePaymentSucceeded(webhookData.data as unknown as Record<string, unknown>));
       break;
 
     case "setup_intent.succeeded":
       // Este evento llega porque usamos setupFutureUsage="off_session"
       // Aquí guardamos el payment_method_id para cobrar el upsell después
-      waitUntil(handleSetupIntentSucceeded(webhookData.data as Record<string, unknown>));
+      waitUntil(handleSetupIntentSucceeded(webhookData.data as unknown as Record<string, unknown>));
       break;
 
     case "membership.went_valid":
       // Membresía activada → aquí podrías disparar Connect WA
-      waitUntil(handleMembershipActivated(webhookData.data as Record<string, unknown>));
+      waitUntil(handleMembershipActivated(webhookData.data as unknown as Record<string, unknown>));
       break;
 
     case "payment.failed":
-      waitUntil(handlePaymentFailed(webhookData.data as Record<string, unknown>));
+      waitUntil(handlePaymentFailed(webhookData.data as unknown as Record<string, unknown>));
       break;
 
     default:
