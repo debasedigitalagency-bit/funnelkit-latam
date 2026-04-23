@@ -34,7 +34,7 @@ export async function POST(request: NextRequest): Promise<Response> {
       waitUntil(handleSetupIntentSucceeded(webhookData.data as unknown as Record<string, unknown>));
       break;
 
-    case "membership.went_valid":
+    case "membership.activated":
       // Membresía activada → aquí podrías disparar Connect WA
       waitUntil(handleMembershipActivated(webhookData.data as unknown as Record<string, unknown>));
       break;
