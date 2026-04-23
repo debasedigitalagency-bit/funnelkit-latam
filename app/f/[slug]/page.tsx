@@ -37,10 +37,10 @@ export default async function CheckoutPage({ params }: Props) {
   const config = funnel.config as FunnelConfig;
 
   // Registrar visita (fire-and-forget — no bloquea el render)
-  supabase.from("analytics_events").insert({
+  void supabase.from("analytics_events").insert({
     funnel_id: funnel.id,
     event: "visit",
-  }).then(() => {}).catch(() => {});
+  });
 
   return (
     <CheckoutClient
